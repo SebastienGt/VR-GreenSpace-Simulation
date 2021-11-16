@@ -25503,10 +25503,12 @@ struct ObjectController_tC7C3CD5CDC9519FAA82AEE4489D5319439D254BC  : public Mono
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___InactiveMaterial_4;
 	// UnityEngine.Material ObjectController::GazedAtMaterial
 	Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3* ___GazedAtMaterial_5;
+	// UnityEngine.GameObject ObjectController::player
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player_10;
 	// UnityEngine.Renderer ObjectController::_myRenderer
-	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* ____myRenderer_10;
+	Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* ____myRenderer_11;
 	// UnityEngine.Vector3 ObjectController::_startingPosition
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ____startingPosition_11;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ____startingPosition_12;
 };
 
 // System.ReflectionOnlyType

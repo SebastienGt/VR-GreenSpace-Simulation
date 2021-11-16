@@ -41,6 +41,7 @@ public class ObjectController : MonoBehaviour
     private const float _maxObjectDistance = 3.5f;
     private const float _minObjectHeight = 0.5f;
     private const float _maxObjectHeight = 3.5f;
+    public GameObject player;
 
     private Renderer _myRenderer;
     private Vector3 _startingPosition;
@@ -76,9 +77,9 @@ public class ObjectController : MonoBehaviour
         // Moves the parent to the new position (siblings relative distance from their parent is 0).
         transform.parent.localPosition = newPos;
 
-        randomSib.SetActive(true);
-        gameObject.SetActive(false);
-        SetMaterial(false);
+        //randomSib.SetActive(true);
+        //gameObject.SetActive(false);
+        //SetMaterial(false);
     }
 
     /// <summary>
@@ -103,6 +104,7 @@ public class ObjectController : MonoBehaviour
     /// </summary>
     public void OnPointerClick()
     {
+        player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         TeleportRandomly();
     }
 
