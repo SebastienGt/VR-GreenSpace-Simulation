@@ -67,7 +67,10 @@ public class CameraPointer : MonoBehaviour {
                 _gazedAtObject = hit.transform.gameObject;
                 setT1(0);
                 state = 1;
-                ps.Play();
+                ps.Stop();
+                if (hit.transform.gameObject.transform.parent.name == "Treasure") {
+                    ps.Play();
+                }
                 _gazedAtObject.SendMessage("OnPointerEnter");
             } else {
                 // Looking at the same GameObject
@@ -91,6 +94,7 @@ public class CameraPointer : MonoBehaviour {
         } else {
             // No GameObject detected in front of the camera.
             setT1(0);
+            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             state = 0;
             _gazedAtObject?.SendMessage("OnPointerExit");
             // If the ray doesn't hit anything, set the position to the maxCursorDistance

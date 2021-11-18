@@ -22,7 +22,7 @@ using UnityEngine;
 /// <summary>
 /// Controls target objects behaviour.
 /// </summary>
-public class ObjectController : MonoBehaviour
+public class Plant : MonoBehaviour
 {
     /// <summary>
     /// The material to use when this object is inactive (not being gazed at).
@@ -33,6 +33,8 @@ public class ObjectController : MonoBehaviour
     /// The material to use when this object is active (gazed at).
     /// </summary>
     public Material GazedAtMaterial;
+
+    public Material FullyGrownMaterial;
 
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
@@ -46,6 +48,9 @@ public class ObjectController : MonoBehaviour
     private Renderer _myRenderer;
     private Vector3 _startingPosition;
 
+    public bool seedPlaced = false; // 0 = not growing, 1 = growing
+    private const float growthRate = 0.1f;
+
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
@@ -53,22 +58,6 @@ public class ObjectController : MonoBehaviour
     {
         _startingPosition = transform.parent.localPosition;
         _myRenderer = GetComponent<Renderer>();
-        SetMaterial(false);
-    }
-
-    public void DeactivateCurrentActivateOthers()
-    {
-        // Activate all siblings
-        int thisSibIdx = transform.GetSiblingIndex();
-        int numSibs = transform.parent.childCount;
-        for (int i = 1; i <= numSibs; i++) {
-            int sibIdx = (thisSibIdx + i) % numSibs;
-            GameObject sib = transform.parent.GetChild(sibIdx).gameObject;
-            sib.SetActive(true);
-        }
-
-
-        gameObject.SetActive(false);
         SetMaterial(false);
     }
 
@@ -88,16 +77,15 @@ public class ObjectController : MonoBehaviour
         SetMaterial(false);
     }
 
-    /// <summary>
-    /// This method is called by the Main Camera when it is gazing at this GameObject and the screen
-    /// is touched.
-    /// </summary>
-    public void OnPointerClick()
+    public void Update()
     {
-        player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        DeactivateCurrentActivateOthers();
-    }
+        if (seedPlaced && transform.localScale.x < 1) {
+            var scaleChangeCoord = growthRate * Time.deltaTime;
+            var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord, scaleChangeCoord);
+            transform.localScale += scaleChange;
+        }
 
+    }
     /// <summary>
     /// Sets this instance's material according to gazedAt status.
     /// </summary>
