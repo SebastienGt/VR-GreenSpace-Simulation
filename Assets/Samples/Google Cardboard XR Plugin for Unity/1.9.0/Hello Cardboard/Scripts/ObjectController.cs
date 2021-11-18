@@ -56,30 +56,20 @@ public class ObjectController : MonoBehaviour
         SetMaterial(false);
     }
 
-    /// <summary>
-    /// Teleports this instance randomly when triggered by a pointer click.
-    /// </summary>
-    public void TeleportRandomly()
+    public void DeactivateCurrentActivateOthers()
     {
-        // Picks a random sibling, activates it and deactivates itself.
-        int sibIdx = transform.GetSiblingIndex();
+        // Activate all siblings
+        int thisSibIdx = transform.GetSiblingIndex();
         int numSibs = transform.parent.childCount;
-        sibIdx = (sibIdx + Random.Range(1, numSibs)) % numSibs;
-        GameObject randomSib = transform.parent.GetChild(sibIdx).gameObject;
+        for (int i = 1; i <= numSibs; i++) {
+            int sibIdx = (thisSibIdx + i) % numSibs;
+            GameObject sib = transform.parent.GetChild(sibIdx).gameObject;
+            sib.SetActive(true);
+        }
 
-        // Computes new object's location.
-        float angle = Random.Range(-Mathf.PI, Mathf.PI);
-        float distance = Random.Range(_minObjectDistance, _maxObjectDistance);
-        float height = Random.Range(_minObjectHeight, _maxObjectHeight);
-        Vector3 newPos = new Vector3(Mathf.Cos(angle) * distance, height,
-                                     Mathf.Sin(angle) * distance);
 
-        // Moves the parent to the new position (siblings relative distance from their parent is 0).
-        transform.parent.localPosition = newPos;
-
-        //randomSib.SetActive(true);
-        //gameObject.SetActive(false);
-        //SetMaterial(false);
+        gameObject.SetActive(false);
+        SetMaterial(false);
     }
 
     /// <summary>
@@ -105,7 +95,7 @@ public class ObjectController : MonoBehaviour
     public void OnPointerClick()
     {
         player.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        TeleportRandomly();
+        DeactivateCurrentActivateOthers();
     }
 
     /// <summary>
