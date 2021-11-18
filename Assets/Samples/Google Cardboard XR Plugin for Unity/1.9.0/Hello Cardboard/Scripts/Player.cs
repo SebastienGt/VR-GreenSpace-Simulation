@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public static Player player;
     public bool hasSeed { get; set; }
-    public int Money;
+    public int Money = 20;
     public GameObject seedUI;
     void Awake()
     {

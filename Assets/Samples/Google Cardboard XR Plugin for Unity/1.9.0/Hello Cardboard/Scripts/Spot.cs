@@ -2,28 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spot : MonoBehaviour
+public class Spot : InteractableObject
 {
+    // If the spot already have a plant.
+    public bool hasPlant = false;
+    // Prefab
     public GameObject Plant;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    public void OnPointerClick()
+    public override void OnPointerEnter()
     {
-        if (Player.player.hasSeed) {
-            GameObject j = Instantiate(Plant, this.transform);
-            Player.player.hasSeed = false;
-            j.GetComponent<Plant>().seedPlaced = true;
+        if (Player.player.hasSeed && !hasPlant)
+        {
+            _interactable = true;
         }
+        else
+        {
+            _interactable = false;
+        }
+
+        if (_interactable && Player.player.hasSeed && !hasPlant)
+            SetMaterial(true);
     }
-
-
-    // Update is called once per frame
-    void Update()
+    public override void OnPointerClick()
     {
-        
+        base.OnPointerClick();
+        if (Player.player.hasSeed) {
+            GameObject g = Instantiate(Plant, this.transform);
+            Player.player.hasSeed = false;
+            g.GetComponent<Plant>().seedPlaced = true;
+            g.GetComponent<Plant>().spot = this;
+            hasPlant = true;
+        }
     }
 }

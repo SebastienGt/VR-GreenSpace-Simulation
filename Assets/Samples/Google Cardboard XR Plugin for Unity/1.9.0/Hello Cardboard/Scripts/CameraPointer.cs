@@ -68,8 +68,9 @@ public class CameraPointer : MonoBehaviour {
                 setT1(0);
                 state = 1;
                 ps.Stop();
-                if (hit.transform.gameObject.transform.parent.name == "Treasure") {
-                    ps.Play();
+                if (hit.transform.gameObject.GetComponent<InteractableObject>()) {
+                    if (hit.transform.gameObject.GetComponent<InteractableObject>()._interactable == true)
+                        ps.Play();
                 }
                 _gazedAtObject.SendMessage("OnPointerEnter");
             } else {
