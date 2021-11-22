@@ -7,13 +7,14 @@ public class Plant : InteractableObject
     private const float growthRate = 0.1f;
     public Spot spot = null;
 
-    private void Start()
+    public void Start()
     {
         _interactable = false;
+        seedPlaced = true;
     }
     public void Update()
     {
-        if (seedPlaced && transform.localScale.x < 1) {
+        if (transform.localScale.x < 1) {
             var scaleChangeCoord = growthRate * Time.deltaTime;
             var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord, scaleChangeCoord);
             transform.localScale += scaleChange;
@@ -28,8 +29,8 @@ public class Plant : InteractableObject
     public override void OnPointerClick()
     {
         base.OnPointerClick();
-        Player.player.Money += 50;
+        Player.player.ChangeMoney(50);
         gameObject.SetActive(false);
-        spot.hasPlant = true;
+        spot.hasPlant = false;
     }
 }

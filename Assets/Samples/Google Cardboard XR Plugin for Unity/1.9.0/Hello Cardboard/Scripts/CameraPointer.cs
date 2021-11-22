@@ -70,7 +70,17 @@ public class CameraPointer : MonoBehaviour {
                 ps.Stop();
                 if (hit.transform.gameObject.GetComponent<InteractableObject>()) {
                     if (hit.transform.gameObject.GetComponent<InteractableObject>()._interactable == true)
-                        ps.Play();
+                    {
+                        if (hit.transform.gameObject.GetComponent<Spot>())
+                        {
+                            if (Player.player.hasSeed && !hit.transform.gameObject.GetComponent<Spot>().hasPlant)
+                                ps.Play();
+                        }
+                        else
+                        {
+                            ps.Play();
+                        }
+                    }
                 }
                 _gazedAtObject.SendMessage("OnPointerEnter");
             } else {
