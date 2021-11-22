@@ -54,59 +54,67 @@ extern void Plant__ctor_m077EBA5FF43D35D1CB8B8CBAB536875F5D93BB54 (void);
 extern void Player_get_hasSeed_m17A70530137CEA76375C7854C779C31DDFABD934 (void);
 // 0x00000015 System.Void Player::set_hasSeed(System.Boolean)
 extern void Player_set_hasSeed_m886A43A54B2D34A1F49900228870CEAC86099C5B (void);
-// 0x00000016 System.Void Player::Awake()
-extern void Player_Awake_m512A28E1559EB8AEEB2E1DB873F9F99FCC96BA67 (void);
-// 0x00000017 System.Void Player::Start()
+// 0x00000016 System.Void Player::Start()
 extern void Player_Start_mC31CF4F40DDEA35C5E39E8C43EC37284AE7C453D (void);
-// 0x00000018 System.Void Player::Update()
-extern void Player_Update_m95E134A5EF1B5164EA281F61D7FA436F59BE3C9F (void);
-// 0x00000019 System.Void Player::.ctor()
+// 0x00000017 System.Void Player::getSeed()
+extern void Player_getSeed_mC63A79811C6747C5D429F44496679F85C060C403 (void);
+// 0x00000018 System.Void Player::PlantSeed()
+extern void Player_PlantSeed_mC051229DF33A8C16D6C37D8EF665CEBFA7FC9FDF (void);
+// 0x00000019 System.Void Player::ChangeMoney(System.Int32)
+extern void Player_ChangeMoney_mE5A5FFF4C1906F6E9296D32BBD53E018194D8827 (void);
+// 0x0000001A System.Void Player::.ctor()
 extern void Player__ctor_m0A83E0706592FC871B0CF188B37AFC6649F3D85D (void);
-// 0x0000001A System.Void Seed::OnPointerClick()
+// 0x0000001B System.Void Seed::OnPointerClick()
 extern void Seed_OnPointerClick_m7E6B92A67736CB0056C0FA0673BEFBD42B273832 (void);
-// 0x0000001B System.Void Seed::.ctor()
+// 0x0000001C System.Void Seed::.ctor()
 extern void Seed__ctor_m16CBBD603709745DF15FA9B93931DB9E1AFA1218 (void);
-// 0x0000001C System.Void Spot::OnPointerEnter()
+// 0x0000001D System.Void Spot::OnPointerEnter()
 extern void Spot_OnPointerEnter_mA98BC915A604AFAF77BCFC0D0190EABEAEEC094D (void);
-// 0x0000001D System.Void Spot::OnPointerClick()
+// 0x0000001E System.Void Spot::OnPointerClick()
 extern void Spot_OnPointerClick_m840D8F50838AE0AE8BF0C9F740BF94E54E81EBB8 (void);
-// 0x0000001E System.Void Spot::.ctor()
+// 0x0000001F System.Void Spot::.ctor()
 extern void Spot__ctor_m7C8DFB53462A4196313AD1558AF838079BA3E348 (void);
-// 0x0000001F System.Void TeleportationMarker::OnPointerClick()
+// 0x00000020 System.Void TeleportationMarker::OnPointerClick()
 extern void TeleportationMarker_OnPointerClick_m71F675864E4922CB7BAC2863E1F7BF29E95F4C26 (void);
-// 0x00000020 System.Void TeleportationMarker::.ctor()
+// 0x00000021 System.Void TeleportationMarker::.ctor()
 extern void TeleportationMarker__ctor_m5542DB55BB604DBF86D60399F572D212A92657CD (void);
-// 0x00000021 System.Boolean VrModeController::get__isScreenTouched()
+// 0x00000022 System.Void UIElement::Awake()
+extern void UIElement_Awake_mD724E027BF49DC7FAE8037A49EE4A357C0F08861 (void);
+// 0x00000023 System.Void UIElement::AfficherMoney(System.Int32)
+extern void UIElement_AfficherMoney_m0B62EC7BCEE155A586A2D68D8D5179B1E5A535EA (void);
+// 0x00000024 System.Void UIElement::.ctor()
+extern void UIElement__ctor_m308C79D1A5E0A891E507E85FDB378F2D42EB9AC2 (void);
+// 0x00000025 System.Boolean VrModeController::get__isScreenTouched()
 extern void VrModeController_get__isScreenTouched_mD72F14326F1D19F3AC970FD0ED9D0C5CD5C6CFB5 (void);
-// 0x00000022 System.Boolean VrModeController::get__isVrModeEnabled()
+// 0x00000026 System.Boolean VrModeController::get__isVrModeEnabled()
 extern void VrModeController_get__isVrModeEnabled_m8D8D68536E09FF2DEAD3795AF30A57BA6DF7C95F (void);
-// 0x00000023 System.Void VrModeController::Start()
+// 0x00000027 System.Void VrModeController::Start()
 extern void VrModeController_Start_m10BF77FE8B825D9640800D5DF7EF791A391FA49B (void);
-// 0x00000024 System.Void VrModeController::Update()
+// 0x00000028 System.Void VrModeController::Update()
 extern void VrModeController_Update_m43F984D5BF13F2C545B508D93645C1C3AC9262D5 (void);
-// 0x00000025 System.Void VrModeController::EnterVR()
+// 0x00000029 System.Void VrModeController::EnterVR()
 extern void VrModeController_EnterVR_m5FD79BF38C6AF621AF9992378BC5C3618FDE5EFB (void);
-// 0x00000026 System.Void VrModeController::ExitVR()
+// 0x0000002A System.Void VrModeController::ExitVR()
 extern void VrModeController_ExitVR_m1FF25DFE5B3BC15CEDE5C42F56CC399693867397 (void);
-// 0x00000027 System.Collections.IEnumerator VrModeController::StartXR()
+// 0x0000002B System.Collections.IEnumerator VrModeController::StartXR()
 extern void VrModeController_StartXR_m57D80B4AD6B28A7C4E36052563B6227E824CDDB4 (void);
-// 0x00000028 System.Void VrModeController::StopXR()
+// 0x0000002C System.Void VrModeController::StopXR()
 extern void VrModeController_StopXR_m0338E8D8035C06E1A46F17C16BBC7933EE9CAA3A (void);
-// 0x00000029 System.Void VrModeController::.ctor()
+// 0x0000002D System.Void VrModeController::.ctor()
 extern void VrModeController__ctor_m94505259847FB7C54346D7CF02AD85793393D141 (void);
-// 0x0000002A System.Void VrModeController/<StartXR>d__8::.ctor(System.Int32)
+// 0x0000002E System.Void VrModeController/<StartXR>d__8::.ctor(System.Int32)
 extern void U3CStartXRU3Ed__8__ctor_mDBB84802D1450502149A6C008A832E308C8A782F (void);
-// 0x0000002B System.Void VrModeController/<StartXR>d__8::System.IDisposable.Dispose()
+// 0x0000002F System.Void VrModeController/<StartXR>d__8::System.IDisposable.Dispose()
 extern void U3CStartXRU3Ed__8_System_IDisposable_Dispose_mD041B59FA25678948855D0CF01B310441F2664FF (void);
-// 0x0000002C System.Boolean VrModeController/<StartXR>d__8::MoveNext()
+// 0x00000030 System.Boolean VrModeController/<StartXR>d__8::MoveNext()
 extern void U3CStartXRU3Ed__8_MoveNext_m4DE0258986C4EAD50C23643C296148E615F18F3B (void);
-// 0x0000002D System.Object VrModeController/<StartXR>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
+// 0x00000031 System.Object VrModeController/<StartXR>d__8::System.Collections.Generic.IEnumerator<System.Object>.get_Current()
 extern void U3CStartXRU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m45CEDBBEA373C05471C21B43FFD64AC230C0FD07 (void);
-// 0x0000002E System.Void VrModeController/<StartXR>d__8::System.Collections.IEnumerator.Reset()
+// 0x00000032 System.Void VrModeController/<StartXR>d__8::System.Collections.IEnumerator.Reset()
 extern void U3CStartXRU3Ed__8_System_Collections_IEnumerator_Reset_m567097CE8E89CC63B63CE7223DD7C695785507F7 (void);
-// 0x0000002F System.Object VrModeController/<StartXR>d__8::System.Collections.IEnumerator.get_Current()
+// 0x00000033 System.Object VrModeController/<StartXR>d__8::System.Collections.IEnumerator.get_Current()
 extern void U3CStartXRU3Ed__8_System_Collections_IEnumerator_get_Current_mC3907BDCD2DBB0A51A525FD6087B413DECFD6407 (void);
-static Il2CppMethodPointer s_methodPointers[47] = 
+static Il2CppMethodPointer s_methodPointers[51] = 
 {
 	CameraPointer_setT1_m454D6051CDAAE1DB75B3A1689E736C07A26A6CED,
 	CameraPointer_getT1_mB9D16F052DEAA44BC6A981AB6800BB0BAC2025DB,
@@ -129,9 +137,10 @@ static Il2CppMethodPointer s_methodPointers[47] =
 	Plant__ctor_m077EBA5FF43D35D1CB8B8CBAB536875F5D93BB54,
 	Player_get_hasSeed_m17A70530137CEA76375C7854C779C31DDFABD934,
 	Player_set_hasSeed_m886A43A54B2D34A1F49900228870CEAC86099C5B,
-	Player_Awake_m512A28E1559EB8AEEB2E1DB873F9F99FCC96BA67,
 	Player_Start_mC31CF4F40DDEA35C5E39E8C43EC37284AE7C453D,
-	Player_Update_m95E134A5EF1B5164EA281F61D7FA436F59BE3C9F,
+	Player_getSeed_mC63A79811C6747C5D429F44496679F85C060C403,
+	Player_PlantSeed_mC051229DF33A8C16D6C37D8EF665CEBFA7FC9FDF,
+	Player_ChangeMoney_mE5A5FFF4C1906F6E9296D32BBD53E018194D8827,
 	Player__ctor_m0A83E0706592FC871B0CF188B37AFC6649F3D85D,
 	Seed_OnPointerClick_m7E6B92A67736CB0056C0FA0673BEFBD42B273832,
 	Seed__ctor_m16CBBD603709745DF15FA9B93931DB9E1AFA1218,
@@ -140,6 +149,9 @@ static Il2CppMethodPointer s_methodPointers[47] =
 	Spot__ctor_m7C8DFB53462A4196313AD1558AF838079BA3E348,
 	TeleportationMarker_OnPointerClick_m71F675864E4922CB7BAC2863E1F7BF29E95F4C26,
 	TeleportationMarker__ctor_m5542DB55BB604DBF86D60399F572D212A92657CD,
+	UIElement_Awake_mD724E027BF49DC7FAE8037A49EE4A357C0F08861,
+	UIElement_AfficherMoney_m0B62EC7BCEE155A586A2D68D8D5179B1E5A535EA,
+	UIElement__ctor_m308C79D1A5E0A891E507E85FDB378F2D42EB9AC2,
 	VrModeController_get__isScreenTouched_mD72F14326F1D19F3AC970FD0ED9D0C5CD5C6CFB5,
 	VrModeController_get__isVrModeEnabled_m8D8D68536E09FF2DEAD3795AF30A57BA6DF7C95F,
 	VrModeController_Start_m10BF77FE8B825D9640800D5DF7EF791A391FA49B,
@@ -156,61 +168,65 @@ static Il2CppMethodPointer s_methodPointers[47] =
 	U3CStartXRU3Ed__8_System_Collections_IEnumerator_Reset_m567097CE8E89CC63B63CE7223DD7C695785507F7,
 	U3CStartXRU3Ed__8_System_Collections_IEnumerator_get_Current_mC3907BDCD2DBB0A51A525FD6087B413DECFD6407,
 };
-static const int32_t s_InvokerIndices[47] = 
+static const int32_t s_InvokerIndices[51] = 
 {
-	2623,
-	3138,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	2618,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3133,
-	2618,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3182,
-	3133,
-	3133,
-	3182,
-	3182,
-	3182,
-	3182,
-	3102,
-	3182,
-	3182,
-	2575,
-	3182,
-	3133,
-	3102,
-	3182,
-	3102,
+	2808,
+	3366,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	2803,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3361,
+	2803,
+	3420,
+	3420,
+	3420,
+	2758,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	3420,
+	2758,
+	3420,
+	3361,
+	3361,
+	3420,
+	3420,
+	3420,
+	3420,
+	3329,
+	3420,
+	3420,
+	2758,
+	3420,
+	3361,
+	3329,
+	3420,
+	3329,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	47,
+	51,
 	s_methodPointers,
 	0,
 	NULL,

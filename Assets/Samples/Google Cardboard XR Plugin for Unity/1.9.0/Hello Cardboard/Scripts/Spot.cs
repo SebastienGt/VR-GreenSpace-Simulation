@@ -13,27 +13,17 @@ public class Spot : InteractableObject
 
     public override void OnPointerEnter()
     {
-        if (Player.player.hasSeed && !hasPlant)
-        {
-            _interactable = true;
-        }
-        else
-        {
-            _interactable = false;
-        }
-
-        if (_interactable && Player.player.hasSeed && !hasPlant)
-            SetMaterial(true);
+        //if (_interactable && Player.player.hasSeed && !hasPlant)
+        SetMaterial(true);
     }
     public override void OnPointerClick()
     {
         base.OnPointerClick();
         if (Player.player.hasSeed) {
             GameObject g = Instantiate(Plant, this.transform);
-            Player.player.hasSeed = false;
-            g.GetComponent<Plant>().seedPlaced = true;
             g.GetComponent<Plant>().spot = this;
             VaseInstructionsText.GetComponent<TextMesh>().text = GROW_VASE_INSTRUCTIONS;
+            Player.player.PlantSeed();
             hasPlant = true;
         }
     }

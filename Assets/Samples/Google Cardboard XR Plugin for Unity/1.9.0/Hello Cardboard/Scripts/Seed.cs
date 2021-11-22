@@ -14,8 +14,7 @@ public class Seed : InteractableObject
     {
         base.OnPointerClick();
         if (!Player.player.hasSeed) {
-            Player.player.hasSeed = true;
-            Player.player.Money -= 5;
+            Player.player.getSeed();
             //gameObject.SetActive(false);
             if (!TextChanged) {
                 SeedInstructionsText.GetComponent<TextMesh>().text = PLANT_SEED_INSTRUCTIONS;

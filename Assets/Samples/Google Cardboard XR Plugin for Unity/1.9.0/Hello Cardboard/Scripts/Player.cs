@@ -7,22 +7,29 @@ public class Player : MonoBehaviour
 
     public static Player player;
     public bool hasSeed { get; set; }
-    public int Money = 20;
+    public int Money = 0;
     public GameObject seedUI;
-    void Awake()
-    {
-        player = this;
-    }
-    
-    // Start is called before the first frame update
     void Start()
     {
-        
+        player = this;
+        ChangeMoney(20);
+    }
+    
+    public void getSeed()
+    {
+        hasSeed = true;
+        seedUI.SetActive(true);
+        ChangeMoney(-5);
+    }
+    public void PlantSeed()
+    {
+        hasSeed = false;
+        seedUI.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeMoney(int amount)
     {
-        
+        Money += amount;
+        UIElement.uIElement.AfficherMoney(Money);
     }
 }
