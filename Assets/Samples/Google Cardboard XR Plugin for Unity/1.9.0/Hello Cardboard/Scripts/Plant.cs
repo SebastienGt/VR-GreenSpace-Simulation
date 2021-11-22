@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class Plant : InteractableObject
 {
-    private readonly string SELL_VASE_INSTRUCTIONS = "Great! Now click on the plant to sell it.";
-    private readonly string REPEAT_INSTRUCTIONS = "Now you can grow and sell more plants!";
+    private readonly string SELL_VASE_INSTRUCTIONS = "Great! Now click on\n the plant to sell it.";
+    private readonly string REPEAT_INSTRUCTIONS = "Now you can grow and\n sell more plants!";
     public bool seedPlaced = false; // 0 = not growing, 1 = growing
     private const float growthRate = 0.1f;
     public Spot spot = null;
@@ -25,7 +26,7 @@ public class Plant : InteractableObject
         {
             if (_interactable == false) {
                 _interactable = true;
-                GameObject.Find("InstructionsVase").GetComponent<TextMesh>().text = SELL_VASE_INSTRUCTIONS;
+                GameObject.Find("SpotText").GetComponent<TextMeshPro>().text = SELL_VASE_INSTRUCTIONS;
             }
         }
     }
@@ -37,11 +38,11 @@ public class Plant : InteractableObject
         gameObject.SetActive(false);
         Player.player.hasSeed = false;
         spot.hasPlant = false;
-        if (GameObject.Find("InstructionsVase").GetComponent<TextMesh>().text == REPEAT_INSTRUCTIONS) {
-            Destroy(GameObject.Find("InstructionsVase"));
+        if (GameObject.Find("SpotText").GetComponent<TextMeshPro>().text == REPEAT_INSTRUCTIONS) {
+            Destroy(GameObject.Find("SpotText"));
         } else {
-            GameObject.Find("InstructionsVase").GetComponent<TextMesh>().text = REPEAT_INSTRUCTIONS;
+            GameObject.Find("SpotText").GetComponent<TextMeshPro>().text = REPEAT_INSTRUCTIONS;
         }
-        Destroy(GameObject.Find("InstructionsSeed"));
+        Destroy(GameObject.Find("SeedText"));
     }
 }

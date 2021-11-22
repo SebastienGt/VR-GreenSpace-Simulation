@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Spot : InteractableObject
 {
-    private readonly string GROW_VASE_INSTRUCTIONS = "Great! Now wait for the plant to grow...";
-    public TextMesh VaseInstructionsText;
+    private readonly string GROW_VASE_INSTRUCTIONS = "Great! Now wait for\n the plant to grow...";
+    public TextMeshPro VaseInstructionsText;
     // If the spot already have a plant.
     public bool hasPlant = false;
     // Prefab
@@ -22,7 +23,7 @@ public class Spot : InteractableObject
         if (Player.player.hasSeed) {
             GameObject g = Instantiate(Plant, this.transform);
             g.GetComponent<Plant>().spot = this;
-            VaseInstructionsText.GetComponent<TextMesh>().text = GROW_VASE_INSTRUCTIONS;
+            VaseInstructionsText.GetComponent<TextMeshPro>().text = GROW_VASE_INSTRUCTIONS;
             Player.player.PlantSeed();
             hasPlant = true;
         }
