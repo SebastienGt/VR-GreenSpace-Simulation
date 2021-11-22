@@ -67,12 +67,13 @@ public class CameraPointer : MonoBehaviour {
                 _gazedAtObject = hit.transform.gameObject;
                 setT1(0);
                 state = 1;
-                ps.Stop();
+                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                 _gazedAtObject.SendMessage("OnPointerEnter");
                 if (hit.transform.gameObject.GetComponent<InteractableObject>()) {
                     if (hit.transform.gameObject.GetComponent<InteractableObject>()._interactable == true)
                         ps.Play();
                 }
-                _gazedAtObject.SendMessage("OnPointerEnter");
+               
             } else {
                 // Looking at the same GameObject
                 if (state == 1) {

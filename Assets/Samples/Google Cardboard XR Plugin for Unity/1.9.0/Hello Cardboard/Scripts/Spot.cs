@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Spot : InteractableObject
 {
+    private readonly string GROW_VASE_INSTRUCTIONS = "Great! Now wait for the plant to grow...";
+    public TextMesh VaseInstructionsText;
     // If the spot already have a plant.
     public bool hasPlant = false;
     // Prefab
@@ -31,6 +33,7 @@ public class Spot : InteractableObject
             Player.player.hasSeed = false;
             g.GetComponent<Plant>().seedPlaced = true;
             g.GetComponent<Plant>().spot = this;
+            VaseInstructionsText.GetComponent<TextMesh>().text = GROW_VASE_INSTRUCTIONS;
             hasPlant = true;
         }
     }
