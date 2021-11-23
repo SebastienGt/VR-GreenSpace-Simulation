@@ -17,6 +17,7 @@ public class Seed : InteractableObject
         base.OnPointerClick();
         if (!Player.player.hasSeed) {
             Player.player.getSeed();
+            AudioManager.Instance.Play("seed");
             //gameObject.SetActive(false);
             if (!TextChanged) {
                 SeedInstructionsText.GetComponent<TextMeshPro>().text = PLANT_SEED_INSTRUCTIONS;

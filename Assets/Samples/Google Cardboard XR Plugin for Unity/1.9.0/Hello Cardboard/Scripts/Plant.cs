@@ -20,7 +20,7 @@ public class Plant : InteractableObject
         if (transform.localScale.x < 1) {
             var scaleChangeCoord = growthRate * Time.deltaTime;
             var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord * 2, scaleChangeCoord);
-            transform.localScale += scaleChange;
+            transform.localScale += scaleChange / 10;
         }
         else
         {

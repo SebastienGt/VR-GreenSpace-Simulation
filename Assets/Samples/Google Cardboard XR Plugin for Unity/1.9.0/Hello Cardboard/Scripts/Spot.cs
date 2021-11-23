@@ -26,6 +26,7 @@ public class Spot : InteractableObject
             VaseInstructionsText.GetComponent<TextMeshPro>().text = GROW_VASE_INSTRUCTIONS;
             Player.player.PlantSeed();
             hasPlant = true;
+            AudioManager.Instance.Play("plant");
         }
     }
 }
