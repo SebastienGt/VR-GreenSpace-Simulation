@@ -20,6 +20,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.XR;
+using System.Collections.Generic;
 
 /// <summary>
 /// Sends messages to gazed GameObject.
@@ -57,7 +59,18 @@ public class CameraPointer : MonoBehaviour {
     /// </summary>
     public void Update() {
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
-        // at.
+        // at
+        float vertical = Input.GetAxis("Vertical"); 
+        float horizontal = Input.GetAxis("Horizontal");
+        float speed=10f;
+        if (Mathf.Abs(vertical)>0.01){
+        //move in the direction of the camera
+            transform.position = transform.position + Camera.main.transform.forward * vertical * speed* Time.deltaTime;
+        }
+        if (Mathf.Abs(horizontal)>0.01){
+        //strafe sideways
+            transform.position+= new Vector3(0,0,-horizontal * speed* Time.deltaTime);        
+        }
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance)) {
             // GameObject detected in front of the camera.
@@ -67,6 +80,14 @@ public class CameraPointer : MonoBehaviour {
                 _gazedAtObject = hit.transform.gameObject;
                 setT1(0);
                 state = 1;
+                var dist = (transform.position - hit.transform.position).magnitude;
+                var pshape = ps.shape;
+                // We want the particle to always be perpendicular to the direction we are looking at
+                pshape.rotation = new Vector3(0, 0, 0); 
+                var thresh = 8.0f;
+                if (dist > thresh) {
+                    pshape.position = transform.position + thresh * transform.forward;
+                } 
                 ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                  _gazedAtObject.SendMessage("OnPointerEnter");
                 if (hit.transform.gameObject.GetComponent<InteractableObject>()) {
