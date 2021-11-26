@@ -12,6 +12,7 @@ public class Spot : InteractableObject
     // Prefab
     public GameObject Plant;
 
+
     public override void OnPointerEnter()
     {
         //if (_interactable && Player.player.hasSeed && !hasPlant)

@@ -12,6 +12,7 @@ public class Seed : InteractableObject
     public TextMeshPro VaseInstructionsText;
     private bool TextChanged = false;
 
+
     public override void OnPointerClick()
     {
         base.OnPointerClick();

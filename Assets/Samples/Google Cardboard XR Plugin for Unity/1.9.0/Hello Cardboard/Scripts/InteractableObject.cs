@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InteractableObject : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class InteractableObject : MonoBehaviour
     // Can we interact with it yet ?
     public bool _interactable = true;
 
-
     private Renderer _myRenderer;
 
     // Start is called before the first frame update
@@ -25,6 +25,10 @@ public class InteractableObject : MonoBehaviour
     {
         _myRenderer = GetComponent<Renderer>();
         SetMaterial(false);
+    }
+
+    public virtual bool RequiresCloseDistance() {
+        return true;
     }
 
 

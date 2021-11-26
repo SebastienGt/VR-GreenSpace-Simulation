@@ -22,123 +22,131 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.XR;
 using System.Collections.Generic;
+using TMPro;
 
 /// <summary>
 /// Sends messages to gazed GameObject.
 /// </summary>
 public class CameraPointer : MonoBehaviour {
+    
+    private int _state = 0; // 0 - not selecting ; 1 - selecting
+    private GameObject _gazedAtObject = null;
+    private GameObject _cursorInstance;
+    private ParticleSystem _ps;
+    private const float CONTROLLER_DEADZONE = 0.01f;
+    private const float DURATION = 3f;
+    private const float MAX_DISTANCE = 5f;
+    private const float MAX_DISPLAY_TIME = 500f;
+    private const float MAX_CURSOR_DISTANCE = 30f;
+    private float _cursorHoverTimer = 0;
     public Camera viewCamera;
     public GameObject cursorPrefab;
-    public float maxCursorDistance = 30;
-    private GameObject cursorInstance;
-    ParticleSystem ps;
-    ParticleSystem.MainModule main;
-
-    int state = 0; // 0 - not selecting ; 1 - selecting
-    float t1 = 0;
-    private const float duration = 3f;
-    private const float _maxDistance = 10;
-    private GameObject _gazedAtObject = null;
-    private void setT1(float t) {
-        t1 = t;
-    }
-    private float getT1() {
-        return t1;
-    }
 
     // Start is called before the first frame update
     void Start() {
-        cursorInstance = Instantiate(cursorPrefab);
-        ps = cursorInstance.GetComponentInChildren<ParticleSystem>();
-        main = ps.main;
-        main.simulationSpeed = 3f / duration;
+        _cursorInstance = Instantiate(cursorPrefab);
+        _ps = _cursorInstance.GetComponentInChildren<ParticleSystem>();
+        var main = _ps.main;
+        main.simulationSpeed = 3f / DURATION;
     }
+
+    private void CheckControllerInput()
+    {
+        // Tentative controller input
+        float vertical = Input.GetAxis("Vertical"); 
+        float horizontal = Input.GetAxis("Horizontal");
+        float speed = 5f;
+        if (Mathf.Abs(vertical) > CONTROLLER_DEADZONE){
+            //move in the direction of the camera
+            transform.position += Camera.main.transform.forward * vertical * speed * Time.deltaTime;
+        }
+        if (Mathf.Abs(horizontal) > CONTROLLER_DEADZONE){
+            //strafe sideways
+            transform.position += new Vector3(0,0,-horizontal * speed* Time.deltaTime);        
+        }
+    }
+
 
     /// <summary>
     /// Update is called once per frame.
     /// </summary>
     public void Update() {
-        // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
-        // at
-        float vertical = Input.GetAxis("Vertical"); 
-        float horizontal = Input.GetAxis("Horizontal");
-        float speed=10f;
-        if (Mathf.Abs(vertical)>0.01){
-        //move in the direction of the camera
-            transform.position = transform.position + Camera.main.transform.forward * vertical * speed* Time.deltaTime;
-        }
-        if (Mathf.Abs(horizontal)>0.01){
-        //strafe sideways
-            transform.position+= new Vector3(0,0,-horizontal * speed* Time.deltaTime);        
-        }
+        CheckControllerInput();
+        // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed at
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance)) {
+        float dist = 0;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, MAX_DISTANCE)) {
             // GameObject detected in front of the camera.
-            if (_gazedAtObject != hit.transform.gameObject) {
+            if (_gazedAtObject != hit.transform.gameObject) {            
                 // New GameObject.
                 _gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
-                setT1(0);
-                state = 1;
-                var dist = (transform.position - hit.transform.position).magnitude;
-                var pshape = ps.shape;
-                // We want the particle to always be perpendicular to the direction we are looking at
-                pshape.rotation = new Vector3(0, 0, 0); 
-                var thresh = 8.0f;
-                if (dist > thresh) {
-                    pshape.position = transform.position + thresh * transform.forward;
-                } 
-                ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                 _gazedAtObject.SendMessage("OnPointerEnter");
-                if (hit.transform.gameObject.GetComponent<InteractableObject>()) {
-                    if (hit.transform.gameObject.GetComponent<InteractableObject>()._interactable == true)
+                _cursorHoverTimer = 0;
+                _state = 1;
+                
+                _ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                _gazedAtObject.SendMessage("OnPointerEnter");
+                var interactable = _gazedAtObject.GetComponent<InteractableObject>();
+                if (interactable) {
+                    dist = (transform.position - hit.transform.position).magnitude;
+                    if (!(interactable.RequiresCloseDistance() && dist > MAX_DISTANCE))
                     {
-                        if (hit.transform.gameObject.GetComponent<Spot>())
+                        if (interactable._interactable == true)
                         {
-                            if (Player.player.hasSeed && !hit.transform.gameObject.GetComponent<Spot>().hasPlant)
-                                ps.Play();
-                        }
-                        else
-                        {
-                            ps.Play();
+                            if (_gazedAtObject.GetComponent<Spot>())
+                            {
+                                if (Player.player.hasSeed && !hit.transform.gameObject.GetComponent<Spot>().hasPlant)
+                                    _ps.Play();
+                            }
+                            else
+                            {
+                                _ps.Play();
+                            }
                         }
                     }
                 }
-               
-            } else {
+            } 
+            else 
+            {
                 // Looking at the same GameObject
-                if (state == 1) {
-                    if (getT1() >= duration) {
+                if (_state == 1) {
+                    if (_cursorHoverTimer >= DURATION)
+                    {
                         _gazedAtObject?.SendMessage("OnPointerClick");
-                        setT1(0);
-                        state = 0;
-                        ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                        _cursorHoverTimer = 0;
+                        _state = 0;
+                        _ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
 
-                    } else {
-                        setT1(getT1() + Time.deltaTime);
+                    } 
+                    else
+                    {
+                        _cursorHoverTimer += Time.deltaTime;
                     }
                 }
             }
             // If the ray hits something, set the position to the hit point
-            // and rotate based on the normal vector of the hit
-            cursorInstance.transform.position = hit.point;
-            cursorInstance.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
-
-        } else {
-            // No GameObject detected in front of the camera.
-            setT1(0);
-            ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            state = 0;
-            _gazedAtObject?.SendMessage("OnPointerExit");
-            // If the ray doesn't hit anything, set the position to the maxCursorDistance
             // and rotate to point away from the camera
-            cursorInstance.transform.position = transform.position + transform.forward.normalized * maxCursorDistance;
-            cursorInstance.transform.rotation = Quaternion.FromToRotation(Vector3.up, -transform.forward);
+            _cursorInstance.transform.position = hit.point;
+            _cursorInstance.transform.rotation = Quaternion.FromToRotation(Vector3.up, -transform.forward);
+
+        }
+        else 
+        {
+            // No GameObject detected in front of the camera.
+            _cursorHoverTimer = 0;
+            _ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            _state = 0;
+            _gazedAtObject?.SendMessage("OnPointerExit");
+            // If the ray doesn't hit anything, set the position to the MAX_CURSOR_DISTANCE
+            // and rotate to point away from the camera
+            _cursorInstance.transform.position = transform.position + transform.forward.normalized * MAX_CURSOR_DISTANCE;
+            _cursorInstance.transform.rotation = Quaternion.FromToRotation(Vector3.up, -transform.forward);
             _gazedAtObject = null;
         }
 
         // Checks for screen touches.
-        if (Google.XR.Cardboard.Api.IsTriggerPressed) {
+        if (Google.XR.Cardboard.Api.IsTriggerPressed)
+        {
             _gazedAtObject?.SendMessage("OnPointerClick");
         }
     }

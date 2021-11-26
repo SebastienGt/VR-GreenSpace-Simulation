@@ -4,6 +4,10 @@ using UnityEngine;
 public class StartSphere : InteractableObject
 {
     public InteractableObject TargetMarker;
+
+    public override bool RequiresCloseDistance() {
+        return true;
+    }
     public override void OnPointerClick()
     {
         base.OnPointerClick();

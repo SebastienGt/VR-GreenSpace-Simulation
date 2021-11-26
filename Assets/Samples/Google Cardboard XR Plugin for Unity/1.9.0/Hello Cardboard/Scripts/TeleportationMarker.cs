@@ -4,6 +4,9 @@ using UnityEngine;
 public class TeleportationMarker : InteractableObject
 {
     public TextMesh TeleportationInstructionsMarker;
+    public override bool RequiresCloseDistance() {
+        return false;
+    }
     public override void OnPointerClick()
     {
         base.OnPointerClick();
