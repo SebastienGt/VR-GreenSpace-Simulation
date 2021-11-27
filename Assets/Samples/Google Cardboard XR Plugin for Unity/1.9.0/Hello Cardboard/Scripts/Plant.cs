@@ -17,10 +17,10 @@ public class Plant : InteractableObject
     }
     public void Update()
     {
-        if (transform.localScale.x < 1) {
+        if (transform.localScale.x < 3.0f) {
             var scaleChangeCoord = growthRate * Time.deltaTime;
-            var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord * 2, scaleChangeCoord);
-            transform.localScale += scaleChange / 10;
+            var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord, scaleChangeCoord);
+            transform.localScale += scaleChange;
         }
         else
         {

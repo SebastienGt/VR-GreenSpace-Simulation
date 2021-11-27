@@ -118,5 +118,6 @@ MonoBehaviour:
   InactiveMaterial: {fileID: 2100000, guid: 026c99290ad2d42e98195d21d1c5a21d, type: 2}
   GazedAtMaterial: {fileID: 2100000, guid: 4cc7d26a25d984c5b876a1faafcf6235, type: 2}
   _interactable: 1
+  VaseInstructionsText: {fileID: 0}
   hasPlant: 0
-  Plant: {fileID: 5486837779991390089, guid: 3e4de60f531af4ff198d7a008df6322a, type: 3}
+  Plant: {fileID: 2584187000042601328, guid: 3e4de60f531af4ff198d7a008df6322a, type: 3}

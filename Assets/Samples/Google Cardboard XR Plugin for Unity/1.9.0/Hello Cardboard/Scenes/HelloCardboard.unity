@@ -5869,7 +5869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewCamera: {fileID: 959308592}
   cursorPrefab: {fileID: 8255647554296153863, guid: a8a3203c840ed4217ac9258bac43409f, type: 3}
-  BackupText: 
 --- !u!81 &959308589
 AudioListener:
   m_ObjectHideFlags: 0

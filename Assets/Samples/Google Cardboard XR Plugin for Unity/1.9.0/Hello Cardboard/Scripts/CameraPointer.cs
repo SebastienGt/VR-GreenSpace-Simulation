@@ -35,7 +35,7 @@ public class CameraPointer : MonoBehaviour {
     private ParticleSystem _ps;
     private const float CONTROLLER_DEADZONE = 0.01f;
     private const float DURATION = 3f;
-    private const float MAX_DISTANCE = 5f;
+    private const float MAX_DISTANCE = 6f;
     private const float MAX_DISPLAY_TIME = 500f;
     private const float MAX_CURSOR_DISTANCE = 30f;
     private float _cursorHoverTimer = 0;
@@ -71,7 +71,7 @@ public class CameraPointer : MonoBehaviour {
     /// Update is called once per frame.
     /// </summary>
     public void Update() {
-        CheckControllerInput();
+        //CheckControllerInput();
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed at
         RaycastHit hit;
         float dist = 0;
