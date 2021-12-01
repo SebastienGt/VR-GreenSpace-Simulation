@@ -11,7 +11,12 @@ public class TeleportationMarker : InteractableObject
     {
         base.OnPointerClick();
         Destroy(TeleportationInstructionsMarker);
-        Player.player.transform.position = new Vector3(transform.position.x, Player.player.transform.position.y, transform.position.z);
+        if (Player.player.InstantTeleport) {
+            Player.player.transform.position = new Vector3(transform.position.x, Player.player.transform.position.y, transform.position.z);
+        } else {
+            Player.player.DestObject = this;
+            Player.player.IsMoving = true;
+        }
     }
 
 }

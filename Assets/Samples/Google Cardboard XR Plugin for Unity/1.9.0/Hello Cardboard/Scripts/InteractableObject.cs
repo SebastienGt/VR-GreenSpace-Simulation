@@ -56,6 +56,8 @@ public class InteractableObject : MonoBehaviour
     {
         if (!_interactable)
             return;
+        Player.player.DestObject = null;
+        Player.player.IsMoving = false;
     }
 
     /// <summary>
