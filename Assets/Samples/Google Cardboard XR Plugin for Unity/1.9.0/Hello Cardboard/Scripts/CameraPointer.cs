@@ -34,7 +34,7 @@ public class CameraPointer : MonoBehaviour {
     private GameObject _cursorInstance;
     private ParticleSystem _ps;
     private const float CONTROLLER_DEADZONE = 0.01f;
-    private const float DURATION = 3f;
+    private const float DURATION = 2f;
     private const float MAX_DISTANCE = 5f;
     private const float MAX_DISPLAY_TIME = 500f;
     private const float MAX_CURSOR_DISTANCE = 30f;
