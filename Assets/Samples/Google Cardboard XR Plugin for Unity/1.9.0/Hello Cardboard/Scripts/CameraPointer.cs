@@ -29,13 +29,13 @@ using TMPro;
 /// </summary>
 public class CameraPointer : MonoBehaviour {
     
-    private int _state = 0; // 0 - not selecting ; 1 - selecting
+    private int _state = 0; // 0 - not selecting ; 1 - selecting ; 2 - trying to select, but object is too far
     private GameObject _gazedAtObject = null;
     private GameObject _cursorInstance;
     private ParticleSystem _ps;
     private const float CONTROLLER_DEADZONE = 0.01f;
     private const float DURATION = 3f;
-    private const float MAX_DISTANCE = 6f;
+    private const float MAX_DISTANCE = 5f;
     private const float MAX_DISPLAY_TIME = 500f;
     private const float MAX_CURSOR_DISTANCE = 30f;
     private float _cursorHoverTimer = 0;
@@ -74,25 +74,37 @@ public class CameraPointer : MonoBehaviour {
         //CheckControllerInput();
         // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed at
         RaycastHit hit;
-        float dist = 0;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, MAX_DISTANCE)) {
+        var ps_velocity = _ps.velocityOverLifetime;
+        var main = _ps.main;
+
+        if (Physics.Raycast(transform.position, transform.forward, out hit, MAX_CURSOR_DISTANCE)) {
             // GameObject detected in front of the camera.
             if (_gazedAtObject != hit.transform.gameObject) {            
                 // New GameObject.
                 _gazedAtObject?.SendMessage("OnPointerExit");
                 _gazedAtObject = hit.transform.gameObject;
-                _cursorHoverTimer = 0;
-                _state = 1;
-                
-                _ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 _gazedAtObject.SendMessage("OnPointerEnter");
+                _cursorHoverTimer = 0;
+                _ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
                 var interactable = _gazedAtObject.GetComponent<InteractableObject>();
+                var dist = (transform.position - hit.transform.position).magnitude;
+                if (dist < 0) dist = -dist;
+           
                 if (interactable) {
-                    dist = (transform.position - hit.transform.position).magnitude;
-                    if (!(interactable.RequiresCloseDistance() && dist > MAX_DISTANCE))
+                    if ((!interactable.RequiresCloseDistance()) || dist < MAX_DISTANCE) {
+                        _state = 1;
+                    } else {
+                        _state = 2;
+                    } 
+                
+                
+                    if (_state == 1)
                     {
                         if (interactable._interactable == true)
                         {
+                            main.startColor = new Color(1, 1, 1, 1);
+                            main.loop = false;
+                            ps_velocity.orbitalY = 2.15f;
                             if (_gazedAtObject.GetComponent<Spot>())
                             {
                                 if (Player.player.hasSeed && !hit.transform.gameObject.GetComponent<Spot>().hasPlant)
@@ -103,6 +115,11 @@ public class CameraPointer : MonoBehaviour {
                                 _ps.Play();
                             }
                         }
+                    } else if (_state == 2) {
+                        main.startColor = new Color(1, 0.1f, 0.1f, 1);
+                        main.loop = true;
+                        ps_velocity.orbitalY = 10;
+                        _ps.Play();
                     }
                 }
             } 
