@@ -36,7 +36,6 @@ public class Plant : InteractableObject
         base.OnPointerClick();
         Player.player.ChangeMoney(50);
         gameObject.SetActive(false);
-        Player.player.hasSeed = false;
         spot.hasPlant = false;
         if (GameObject.Find("SpotText").GetComponent<TextMeshPro>().text == REPEAT_INSTRUCTIONS) {
             Destroy(GameObject.Find("SpotText"));
