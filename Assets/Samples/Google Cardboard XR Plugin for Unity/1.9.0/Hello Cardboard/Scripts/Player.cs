@@ -59,6 +59,10 @@ public class Player : MonoBehaviour
     public void ChangeMoney(int amount)
     {
         Money += amount;
+        if (Money < 0)
+        {
+            Money = 0;
+        }
         UIElement.uIElement.AfficherMoney(Money);
     }
 }

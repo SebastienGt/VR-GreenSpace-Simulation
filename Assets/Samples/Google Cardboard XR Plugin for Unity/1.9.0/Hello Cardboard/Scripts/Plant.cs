@@ -7,13 +7,15 @@ public class Plant : InteractableObject
     private readonly string SELL_VASE_INSTRUCTIONS = "Great! Now click on\n the plant to sell it.";
     private readonly string REPEAT_INSTRUCTIONS = "Now you can grow and\n sell more plants!";
     public bool seedPlaced = false; // 0 = not growing, 1 = growing
-    private const float growthRate = 0.1f;
+    private float growthRate;
     public Spot spot = null;
 
     public void Start()
     {
         _interactable = false;
         seedPlaced = true;
+
+        growthRate = GameManager.Instance.growthSpeed_Plant;
     }
     public void Update()
     {
