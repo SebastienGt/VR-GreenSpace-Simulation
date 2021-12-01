@@ -29,18 +29,10 @@ public class Player : MonoBehaviour
     // To be used for physics simulation
     void FixedUpdate()
     {
-        float xAcc = 0, zAcc = 0;
         if (DestObject == null || !IsMoving) {
             return;
         }
         float dstDist = (DestObject.transform.position - transform.position).magnitude;
-        if (dstDist < 0) {
-            dstDist = -dstDist;
-        }
-        Vector3 direction = (DestObject.transform.position - transform.position);
-        direction = direction / direction.magnitude;
-        xAcc = System.Math.Min(0.004f * dstDist, 0.3f);
-        zAcc = System.Math.Min(0.004f * dstDist, 0.3f);
         if (dstDist <= 0.3f) {
             DestObject = null;
             IsMoving = false;
@@ -48,10 +40,8 @@ public class Player : MonoBehaviour
             zVel = 0;
             return;
         }
-        xVel = xVel + xAcc;
-        zVel = zVel + zAcc;
-        Vector3 velVec = new Vector3(direction.x * xVel, 0.0f, direction.z * zVel);
-        transform.position += velVec;
+        
+        transform.position = Vector3.Lerp(transform.position, DestObject.transform.position + new Vector3(0, 1.6f, 0), 0.2f);
     }
     
     public void getSeed()

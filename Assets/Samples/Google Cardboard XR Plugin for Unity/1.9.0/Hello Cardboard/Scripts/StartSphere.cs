@@ -13,6 +13,8 @@ public class StartSphere : InteractableObject
         base.OnPointerClick();
         Player.player.transform.position = TargetMarker.transform.position + 
         new Vector3(0, 1.6F, 0);
+        Player.player.DestObject = null;
+        Player.player.IsMoving = false;
     }
 
 }
