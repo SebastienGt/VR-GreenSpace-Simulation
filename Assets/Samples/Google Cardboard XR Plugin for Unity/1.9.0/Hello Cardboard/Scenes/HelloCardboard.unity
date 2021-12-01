@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -1908,7 +1912,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357250711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
+  m_LocalPosition: {x: 0, y: 0, z: 7.958}
   m_LocalScale: {x: 0.18, y: 0.18, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3002,7 +3006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.38
+      value: 7.09
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3010,7 +3014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.738
+      value: 2.856
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3289,6 +3293,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -4130,7 +4138,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634352547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.597}
+  m_LocalPosition: {x: 0, y: 0, z: 0.437}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4139,7 +4147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.41, y: 0.02}
+  m_AnchoredPosition: {x: 4.98, y: 0.02}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &664530478
@@ -4554,6 +4562,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -5398,6 +5410,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -6830,7 +6846,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040651682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.5}
+  m_LocalPosition: {x: 0, y: 0, z: 5.448}
   m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7399,7 +7415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.62
+      value: 7.03
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7407,7 +7423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.23
+      value: -1.564
       objectReference: {fileID: 0}
     - target: {fileID: 4597596165053490, guid: 8fb3f27dac30daa4ebcf8f9c4a220668, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8934,6 +8950,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -10049,6 +10069,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -10305,6 +10329,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4406979454040724, guid: b2eeeb629ac819a41b58b77ff8a97898, type: 3}
   m_PrefabInstance: {fileID: 1639395617}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667684775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1305618680076728, guid: 82bc738b32db05f4485e4712088da5e8, type: 3}
+  m_PrefabInstance: {fileID: 1492759002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1667684778
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667684775}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 1a5775d94c0e7c741b3f1d7b803f2ef6, type: 3}
 --- !u!1001 &1687682120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11363,6 +11406,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -12135,6 +12182,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -12360,6 +12411,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
@@ -13274,6 +13329,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1449424373045083221, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e569b4a1fb5d044619efe1abc174c85f, type: 2}
     - target: {fileID: 1449424373045083223, guid: 18016ac294d70384891f5ef6be640ca9, type: 3}
       propertyPath: VaseInstructionsText
       value: 
