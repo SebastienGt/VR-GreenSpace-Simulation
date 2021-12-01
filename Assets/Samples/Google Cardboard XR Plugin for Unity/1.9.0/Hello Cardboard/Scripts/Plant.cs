@@ -19,7 +19,7 @@ public class Plant : InteractableObject
     }
     public void Update()
     {
-        if (transform.localScale.x < 3.0f) {
+        if (transform.localScale.x < 1.0f) {
             var scaleChangeCoord = growthRate * Time.deltaTime;
             var scaleChange = new Vector3(scaleChangeCoord, scaleChangeCoord, scaleChangeCoord);
             transform.localScale += scaleChange;
@@ -36,9 +36,9 @@ public class Plant : InteractableObject
     public override void OnPointerClick()
     {
         base.OnPointerClick();
-        Player.player.ChangeMoney(50);
         gameObject.SetActive(false);
         spot.hasPlant = false;
+        Player.player.getPlant();
         if (GameObject.Find("SpotText").GetComponent<TextMeshPro>().text == REPEAT_INSTRUCTIONS) {
             Destroy(GameObject.Find("SpotText"));
         } else {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2249806791389474415}
   - component: {fileID: 4097180627790928549}
   - component: {fileID: 6945860468055255051}
-  - component: {fileID: 5307788223026478162}
+  - component: {fileID: 398772544}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2584187000042601328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2584187000042601328}
-  m_Mesh: {fileID: -9032557090061056480, guid: 33b535f0ae1784cefbfc407dba74ab0e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 04a1f718bef89a548a4b35d2334bb664, type: 3}
 --- !u!23 &4097180627790928549
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 617180914835962458, guid: 33b535f0ae1784cefbfc407dba74ab0e, type: 3}
+  - {fileID: 2100000, guid: 4cee7a5983b187943adc589b9cb1f084, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ec60519befe4c65adf6b89b5b08c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InactiveMaterial: {fileID: 617180914835962458, guid: 33b535f0ae1784cefbfc407dba74ab0e, type: 3}
-  GazedAtMaterial: {fileID: 2100000, guid: 2ce1ad742aae3554997292eed468d59f, type: 2}
+  InactiveMaterial: {fileID: 2100000, guid: 4cee7a5983b187943adc589b9cb1f084, type: 2}
+  GazedAtMaterial: {fileID: 2100000, guid: a61f84ebe1463174f9b8550cbfd80fbe, type: 2}
   _interactable: 1
   seedPlaced: 0
   spot: {fileID: 0}
---- !u!135 &5307788223026478162
-SphereCollider:
+--- !u!65 &398772544
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,5 +113,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.22974123
-  m_Center: {x: 0.034380354, y: 0.22865869, z: -0.02411335}
+  m_Size: {x: 0.49595773, y: 1.1509904, z: 0.4312718}
+  m_Center: {x: 0.028018057, y: 0.5754952, z: 0.027102828}

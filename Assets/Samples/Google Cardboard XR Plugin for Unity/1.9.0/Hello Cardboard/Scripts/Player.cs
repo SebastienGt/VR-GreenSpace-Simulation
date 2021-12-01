@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
     public bool IsMoving = false;
     public bool InstantTeleport;
 
+    public bool hasPlant;
+    public GameObject PlantUI;
+
 
     void Start()
     {
@@ -23,6 +26,8 @@ public class Player : MonoBehaviour
         ChangeMoney(20);
         DestObject = null;
         IsMoving = false;
+        hasSeed = false;
+        hasPlant = false;
     }
 
     // Gets called at each timestep
@@ -47,13 +52,31 @@ public class Player : MonoBehaviour
     public void getSeed()
     {
         hasSeed = true;
+        hasPlant = false;
         seedUI.SetActive(true);
+        PlantUI.SetActive(false);
         ChangeMoney(-5);
     }
     public void PlantSeed()
     {
         hasSeed = false;
         seedUI.SetActive(false);
+    }
+
+    public void getPlant()
+    {
+        hasSeed = false;
+        seedUI.SetActive(false);
+        hasPlant = true;
+        PlantUI.SetActive(true);
+    }
+
+    public void sellPlant()
+    {
+        PlantUI.SetActive(false);
+        hasPlant = false;
+        Player.player.ChangeMoney(50);
+        AudioManager.Instance.Play("sell");
     }
 
     public void ChangeMoney(int amount)
